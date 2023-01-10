@@ -6,7 +6,11 @@ class Scene {
     Scene();
     virtual bool renderScene(sf::RenderWindow &w) = 0;
 };
-
+class playerInit : public Scene {
+    public:
+    playerInit();
+    
+};
 class introScene : public Scene{
     public:
     introScene();

@@ -6,6 +6,7 @@
 #include "cname.h"
 #include "cshape.h"
 #include "csprite.h"
+#include "cphysics.h"
 class Entity{
   
   public: 
@@ -17,9 +18,10 @@ class Entity{
 };
 
 class Player : public Entity {
+  
   public:
   std::shared_ptr<CTransform> cTransform; 
   std::shared_ptr<CName> cName; 
   std::shared_ptr<CShape> cShape; 
-
+  std::shared_ptr<CPhysics> cPhysics;
 };

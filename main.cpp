@@ -1,6 +1,7 @@
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Window/Mouse.hpp>
 #include <cstddef>
 #include <cstdlib>
 #include <new>
@@ -18,7 +19,8 @@ sf::RenderWindow window(sf::VideoMode(wWidth,wHeight),"Window");
 int main()
 {
     Scene* intro = new introScene();
-    Scene* scenes[] = {intro};
+    Scene* s1 = new scene_1();
+    Scene* scenes[] = {intro,s1};
     int sceneIndex = 0;
 
     while(window.isOpen())
@@ -29,13 +31,14 @@ int main()
             if(event.type == sf::Event::Closed){
                 window.close();
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && intro->renderScene(window) == true)
-            {
-                
-            }
-
+            
         }
-
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && intro->renderScene(window) == true)
+        {
+                sceneIndex = 1;
+                
+        }
+       
         window.clear(sf::Color::Black);
         //scenes[sceneIndex]->scene(window);
         //intro_Scene->scene(window);
